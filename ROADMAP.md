@@ -64,8 +64,8 @@ Knowledge entries now carry status markers (`✅ 有效` / `⏳ 待验证` / `�
 
 | Version | Date | Notes |
 |---------|------|-------|
+| v1.6 | 2026-05-10 | Reasoning memory (alternatives), decay (status markers), structured format, sleep-time compute |
+| v1.5 | 2026-05-10 | Sync version history across README + ROADMAP |
 | v1.4 | 2026-05-10 | README: add ROADMAP reference |
 | v1.3 | 2026-05-10 | Add ROADMAP.md |
 | v1.2 | 2026-05-10 | Add applicability guide: per-agent/OS support |
-| v1.1 | 2026-05-10 | Add version history table |
-| v1.0 | 2026-05-10 | Initial release |
