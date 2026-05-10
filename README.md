@@ -100,6 +100,30 @@ This template works with any AI agent that reads files and writes to a workspace
 | **Linux** | Native path support. Best compatibility with tmux-based swarms (ClawTeam, agent teams). Use `inotify` for live file watching. |
 | **WSL2** | Files on `/mnt/` are accessible from both Windows and Linux. Use Mirrored networking for proxy sync. Install Node.js/npm natively inside WSL for OpenClaw. |
 
+## How it compares to existing solutions
+
+| Feature | This template | Awareness-Local (217⭐) | cortex (239⭐) | clawbrain (25⭐) |
+|---------|:---:|:---:|:---:|:---:|
+| Zero dependencies (copy & use) | ✅ | ❌ needs MCP server | ❌ needs Python service | ❌ needs plugin |
+| Multi-agent support (OpenClaw/Claude/Cline/Codex) | ✅ table for 8 agents | ❌ MCP only | ❌ framework-specific | ❌ OpenClaw only |
+| Reasoning memory (alternatives + constraints) | ✅ decisions/ format | ❌ | ❌ | ❌ |
+| Emotional memory (profile/story/vibe) | ✅ bonds/ | ❌ | ❌ | ✅ Soul + Bonding |
+| Memory decay (status markers) | ✅ ⏳ over time | ❌ | ❌ | ❌ |
+| Auto-learning (rolling 200-line cache) | ✅ claude-like/recent.md | ⚠️ via MCP | ❌ | ❌ |
+| Trigger-based retrieval | ✅ triggers.md | ⚠️ semantic search | ✅ | ❌ |
+| Sleep-time compute (log after respond) | ✅ structured rule | ❌ | ❌ | ❌ |
+| Structured summary format | ✅ type/root cause/solution/status | ❌ | ❌ | ❌ |
+| Local-first, no cloud | ✅ | ✅ | ⚠️ optional | ✅ |
+
+**Why build on templates instead of services?**
+
+- **No lock-in.** Your memory is markdown files — portable, diffable, git-trackable. Move agents without migrating databases.
+- **No runtime.** No server to deploy, no API to maintain, no credentials to rotate.
+- **Transparent.** Every memory entry is a file you can open and edit with any text editor.
+- **Versionable.** Check `memory/decisions/` into git. Your agent's reasoning becomes team knowledge.
+
+> Services like cortex and Awareness-Local are better if you need semantic (vector) search across thousands of entries. Templates are better if you want simplicity, transparency, and zero operational overhead.
+
 ### Customization Tips
 
 - **Minimal setup**: Just use `claude-like/recent.md` + one `knowledge/` file for your most common topic. No other directories needed.
