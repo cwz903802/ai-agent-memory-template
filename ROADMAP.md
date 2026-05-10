@@ -12,7 +12,7 @@ Knowledge files are read on-demand — the agent must remember to check them. A 
 ### 2. Manual Learning Logging
 When the agent is corrected, it must manually append to `recent.md`. There's no automatic detection of correction patterns.
 
-**Planned:** Define a clear "correction → log" protocol that can be consistently followed. The 200-line cap forces periodic distillation.
+**Resolved:** A structured format (`日期 | 类型 | 问题 | 根因 | 解法 | 状态`) and sleep-time compute rule (log after responding) have been adopted. The 200-line cap forces periodic distillation.
 
 ### 3. No Cross-Session Statistics
 The system doesn't track how often corrections happen, which knowledge files are most used, or consolidation frequency.
@@ -26,6 +26,12 @@ The memory system is designed for one persistent agent. Temporary swarm workers 
 
 ### 5. Token Cost of Auto-Learning
 `recent.md` is loaded every session (~200 lines, ~3k tokens). This is the insurance premium for cross-session continuity. Without it, the agent starts blank every time.
+
+### 6. ~~No Reasoning Memory~~ → ✅ Resolved
+Decisions now include: what was chosen, why, alternatives considered and rejected, constraints, and future re-evaluation conditions.
+
+### 7. ~~No Memory Decay~~ → ✅ Resolved
+Knowledge entries now carry status markers (`✅ 有效` / `⏳ 待验证` / `❌ 已过时`). Periodic review consolidates or removes stale entries.
 
 ## Future Directions
 
@@ -43,6 +49,16 @@ The memory system is designed for one persistent agent. Temporary swarm workers 
 - `context/` scoped to projects (e.g., `context/project-xyz/pending.md`)
 - Coordinator agent loads global memory + project-specific memory
 - Workers remain stateless
+
+### v2.3 — Structured Summarization Template
+- Standardize the `recent.md` entry format across all auto-learning
+- Include: type, problem, root cause, solution, status, related knowledge file
+- Partially implemented in v1.5; full rollout in v2.3
+
+### v2.4 — Sleep-Time Compute Rule
+- Formalize "log after respond" protocol for all memory writes
+- Corrections and lessons are batched and processed outside the conversation flow
+- Partially implemented in v1.5 as behavioral rule
 
 ## Version History
 

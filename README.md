@@ -6,11 +6,12 @@
 
 AI agents forget everything between sessions. This template gives them a **file-based memory system** that survives restarts:
 
-- **Knowledge** — domain expertise organized by topic, read on demand
-- **Decisions** — irreversible choices with rationale (don't repeat mistakes)
-- **Context** — what's pending, what's blocked, what's currently known
-- **Auto-learning** — a rolling cache of recently learned lessons and corrections
-- **Emotional memory** — relationship, rapport, user preferences (optional)
+- **Knowledge** — domain expertise organized by topic, read on demand. Each entry has a **decay status** (`✅ 有效` / `⏳ 待验证` / `❌ 已过时`) for long-term maintainability.
+- **Decisions** — irreversible choices with full **reasoning memory**: what was chosen, why, what alternatives were considered and rejected, and the constraints that drove the decision.
+- **Context** — what's pending, what's blocked, what's currently known.
+- **Auto-learning** — a rolling 200-line cache of recently learned lessons, using a **structured format** (`日期 | 类型 | 问题 | 根因 | 解法 | 状态`) for quick scanning.
+- **Sleep-time compute** — memory writes happen **after** responding to the user, not during. Corrections and learnings are batched and processed without blocking the conversation.
+- **Emotional memory** — relationship, rapport, user preferences (optional).
 
 ## Structure
 
