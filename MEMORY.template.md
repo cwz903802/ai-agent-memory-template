@@ -23,4 +23,17 @@
 
 ---
 
+## Compatibility
+
+If you also use **Claude Code**, create a `CLAUDE.md` that imports this file:
+
+```markdown
+@AGENTS.md
+# AGENTS.md
+```
+
+Or symlink: `ln -s AGENTS.md CLAUDE.md`
+
+---
+
 *Generated from [ai-agent-memory-template](https://github.com/cwz903802/ai-agent-memory-template)*
