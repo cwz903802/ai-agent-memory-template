@@ -105,6 +105,8 @@ This template works with any AI agent that reads files and writes to a workspace
 - **Team setup**: Share `knowledge/` and `decisions/` via git. Keep `bonds/` and `preferences/` local (add to `.gitignore`).
 - **Swarm setup** (ClawTeam, agent teams): The leader agent uses `MEMORY.md`. Workers are stateless — they get task-specific knowledge via spawn prompt, not persistent memory.
 
+> See [ROADMAP.md](ROADMAP.md) for known limitations and planned improvements.
+
 ## Version History
 
 | Version | Date | Notes |
