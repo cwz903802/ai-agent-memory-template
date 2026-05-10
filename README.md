@@ -132,6 +132,26 @@ This template works with any AI agent that reads files and writes to a workspace
 
 > See [ROADMAP.md](ROADMAP.md) for known limitations and planned improvements.
 
+## When to use this template vs a memory service
+
+| Scenario | Template (this repo) | Memory service (cortex, Awareness-Local) |
+|---------|:---:|:---:|
+| Single user, personal agent | **✅ Best fit** | Overkill |
+| Team of 10+ users sharing memory | ❌ Not designed for this | **✅ Best fit** |
+| < 500 memory entries | **✅ Lightweight** | Fine but extra ops |
+| 5000+ entries with semantic search | ❌ No vector search | **✅ Purpose-built** |
+| Zero ops, no deploy | **✅ Copy & go** | Needs server/database |
+| Need to git-track memory changes | **✅ Built on files** | ❌ Binary or DB |
+| Want AI to auto-extract memories | ❌ Manual logging | **✅ Automatic** |
+| Need cross-reference reasoning | ❌ File-by-file only | **✅ Graph queries** |
+| Building a demo / prototype | **✅ Fast setup** | Too heavy |
+| Building for production scale | ❌ Single-agent limit | **✅ Multi-tenant** |
+
+**Key insight:** Your choice should depend on scale.
+- **Personal use, < 500 entries, single agent → template.** The overhead of a memory service isn't worth it.
+- **Team, thousands of entries, need auto-discovery → service.** The template's manual approach won't scale.
+- **Want to start simple and upgrade later?** Start here. All memory is markdown files — portable to any system when you outgrow this approach.
+
 ## Version History
 
 | Version | Date | Notes |
