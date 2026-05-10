@@ -75,10 +75,41 @@ Place a `MEMORY.md` file at your agent's workspace root with a navigation sectio
 | [Claude Code Memory](https://code.claude.com/docs/zh-CN/memory) | Auto-learning cache, bounded context (200 lines), separate knowledge vs memory |
 | [Claude Code Best Practices](https://code.claude.com/docs/zh-CN/best-practices) | Trigger-based retrieval, "correct → log → apply" loop |
 
+## Applicability
+
+This template works with any AI agent that reads files and writes to a workspace directory. The method of "loading" varies by platform:
+
+### By Agent
+
+| Agent | How to use |
+|-------|-----------|
+| **OpenClaw** | Set `agents.defaults.workspace` in openclaw.json to point at the parent of `memory/`. Place `MEMORY.md` at workspace root — it auto-loads on each session. Convert `knowledge/` files into Skill format (`skills/*/SKILL.md`) for auto-triggered retrieval. |
+| **Claude Code** | Place `CLAUDE.md` at project root with `@MEMORY.md` import. Or symlink: `ln -s memory/../MEMORY.md ./CLAUDE.md`. Auto-memory (`claude-like/recent.md`) directly mirrors Claude's built-in learning cache. |
+| **Cline** | Set `memory/` path in Cline's custom instructions. Reference file paths in your rules. |
+| **Cursor / Windsurf** | Add key knowledge points from `knowledge/` to `.cursorrules` or project rules. Reference the full files in `.cursor/rules/`. |
+| **Codex CLI** | Include `MEMORY.md` content in your task prompt at session start. Reference `knowledge/` files when relevant. |
+| **Any CLI agent** | Pipe the template structure into the initial prompt: `cat MEMORY.md knowledge/git.md | agent --task "…"`. |
+
+### By Operating System
+
+| OS | Considerations |
+|----|--------------|
+| **Windows** | Use `A:\` or `C:\` paths. Git needs `GIT_SSL_BACKEND=openssl` behind SOCKS5 proxies. `wsl bash -c` wraps Linux tools. |
+| **macOS** | Native Unix paths. Symlinks work out of the box. Auto-memory can be watched via `fswatch` for live updates. |
+| **Linux** | Native path support. Best compatibility with tmux-based swarms (ClawTeam, agent teams). Use `inotify` for live file watching. |
+| **WSL2** | Files on `/mnt/` are accessible from both Windows and Linux. Use Mirrored networking for proxy sync. Install Node.js/npm natively inside WSL for OpenClaw. |
+
+### Customization Tips
+
+- **Minimal setup**: Just use `claude-like/recent.md` + one `knowledge/` file for your most common topic. No other directories needed.
+- **Team setup**: Share `knowledge/` and `decisions/` via git. Keep `bonds/` and `preferences/` local (add to `.gitignore`).
+- **Swarm setup** (ClawTeam, agent teams): The leader agent uses `MEMORY.md`. Workers are stateless — they get task-specific knowledge via spawn prompt, not persistent memory.
+
 ## Version History
 
 | Version | Date | Notes |
 |---------|------|-------|
+| v1.1 | 2026-05-10 | Added applicability guide, version history |
 | v1.0 | 2026-05-10 | Initial release: complete memory structure, README, MEMORY template |
 
 ## License
