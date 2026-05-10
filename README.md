@@ -184,13 +184,14 @@ Each solution is recorded once in `knowledge/`. The agent reads it before attemp
 
 | Version | Date | Notes |
 |---------|------|-------|
+| v2.0.1 | 2026-05-10 | Fix: sync version history, add pre-push checklist |
 | v2.0 | 2026-05-10 | Real-world impact data, before/after metrics, privacy audit |
 | v1.9 | 2026-05-10 | INDEX cross-ref, combined triggers, knowledge cross-links |
 | v1.8 | 2026-05-10 | Honest comparison: template vs memory service |
 | v1.7 | 2026-05-10 | Competitive comparison table (10 dims vs 3 projects) |
-| v1.6 | 2026-05-10 | 4 memory optimizations: reasoning memory, decay markers, structured format, sleep-time compute |
 
 ## License
 
 MIT
+
 

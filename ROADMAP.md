@@ -70,3 +70,4 @@ Knowledge entries now carry status markers (`âœ?æœ‰æ•ˆ` / `â?å¾…éªŒè¯` / `â?å
 | v1.3 | 2026-05-10 | Add ROADMAP.md |
 | v1.2 | 2026-05-10 | Add applicability guide: per-agent/OS support |
 
+
