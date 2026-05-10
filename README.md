@@ -6,38 +6,38 @@
 
 AI agents forget everything between sessions. This template gives them a **file-based memory system** that survives restarts:
 
-- **Knowledge** ‚Ä?domain expertise organized by topic, read on demand. Each entry has a **decay status** (`‚ú?ÊúâÊïà` / `‚è?ÂæÖÈ™åËØÅ` / `‚ù?Â∑≤ËøáÊó∂`) for long-term maintainability.
-- **Decisions** ‚Ä?irreversible choices with full **reasoning memory**: what was chosen, why, what alternatives were considered and rejected, and the constraints that drove the decision.
-- **Context** ‚Ä?what's pending, what's blocked, what's currently known.
-- **Auto-learning** ‚Ä?a rolling 200-line cache of recently learned lessons, using a **structured format** (`Êó•Êúü | Á±ªÂûã | ÈóÆÈ¢ò | Ê†πÂõ† | Ëß£Ê≥ï | Áä∂ÊÄÅ`) for quick scanning.
-- **Sleep-time compute** ‚Ä?memory writes happen **after** responding to the user, not during. Corrections and learnings are batched and processed without blocking the conversation.
-- **Emotional memory** ‚Ä?relationship, rapport, user preferences (optional).
+- **Knowledge** ???domain expertise organized by topic, read on demand. Each entry has a **decay status** (`???ÊúâÊïà` / `???ÂæÖÈ™åËØÅ` / `???Â∑≤ËøáÊó∂`) for long-term maintainability.
+- **Decisions** ???irreversible choices with full **reasoning memory**: what was chosen, why, what alternatives were considered and rejected, and the constraints that drove the decision.
+- **Context** ???what's pending, what's blocked, what's currently known.
+- **Auto-learning** ???a rolling 200-line cache of recently learned lessons, using a **structured format** (`Êó•Êúü | Á±ªÂûã | ÈóÆÈ¢ò | Ê†πÂõ† | Ëß£Ê≥ï | Áä∂ÊÄÅ`) for quick scanning.
+- **Sleep-time compute** ???memory writes happen **after** responding to the user, not during. Corrections and learnings are batched and processed without blocking the conversation.
+- **Emotional memory** ???relationship, rapport, user preferences (optional).
 
 ## Structure
 
 ```
 memory/
-‚îú‚îÄ‚îÄ claude-like/           ‚Ü?Auto-learning (inspired by Claude Code)
-‚î?  ‚îú‚îÄ‚îÄ recent.md          ‚Ü?Rolling 200-line cache of corrections & lessons
-‚î?  ‚îî‚îÄ‚îÄ triggers.md        ‚Ü?Keyword ‚Ü?knowledge file mapping
-‚î?‚îú‚îÄ‚îÄ knowledge/             ‚Ü?Domain expertise, read on demand
-‚î?  ‚îú‚îÄ‚îÄ git.md
-‚î?  ‚îú‚îÄ‚îÄ wsl.md
-‚î?  ‚îú‚îÄ‚îÄ proxy.md
-‚î?  ‚îú‚îÄ‚îÄ your-topic.md      ‚Ü?Add as needed
-‚î?  ‚îî‚îÄ‚îÄ ...
-‚î?‚îú‚îÄ‚îÄ decisions/             ‚Ü?Irreversible decisions with rationale
-‚î?  ‚îî‚îÄ‚îÄ YYYY-MM-DD-topic.md
-‚î?‚îú‚îÄ‚îÄ context/               ‚Ü?Current state
-‚î?  ‚îú‚îÄ‚îÄ pending.md         ‚Ü?Todo list
-‚î?  ‚îî‚îÄ‚îÄ limitations.md     ‚Ü?Known hard constraints
-‚î?‚îú‚îÄ‚îÄ bonds/                 ‚Ü?Emotional memory (relationship, rapport)
-‚î?  ‚îú‚îÄ‚îÄ profile.md         ‚Ü?User personality & working style
-‚î?  ‚îú‚îÄ‚îÄ story.md           ‚Ü?Shared history, milestones
-‚î?  ‚îî‚îÄ‚îÄ vibe.md            ‚Ü?Rapport, signals, unwritten rules
-‚î?‚îú‚îÄ‚îÄ preferences/           ‚Ü?User preferences
-‚î?  ‚îî‚îÄ‚îÄ user.md
-‚î?‚îî‚îÄ‚îÄ daily/                 ‚Ü?Raw daily logs
+‚îú‚îÄ‚îÄ claude-like/           ???Auto-learning (inspired by Claude Code)
+???  ‚îú‚îÄ‚îÄ recent.md          ???Rolling 200-line cache of corrections & lessons
+???  ‚îî‚îÄ‚îÄ triggers.md        ???Keyword ???knowledge file mapping
+???‚îú‚îÄ‚îÄ knowledge/             ???Domain expertise, read on demand
+???  ‚îú‚îÄ‚îÄ git.md
+???  ‚îú‚îÄ‚îÄ wsl.md
+???  ‚îú‚îÄ‚îÄ proxy.md
+???  ‚îú‚îÄ‚îÄ your-topic.md      ???Add as needed
+???  ‚îî‚îÄ‚îÄ ...
+???‚îú‚îÄ‚îÄ decisions/             ???Irreversible decisions with rationale
+???  ‚îî‚îÄ‚îÄ YYYY-MM-DD-topic.md
+???‚îú‚îÄ‚îÄ context/               ???Current state
+???  ‚îú‚îÄ‚îÄ pending.md         ???Todo list
+???  ‚îî‚îÄ‚îÄ limitations.md     ???Known hard constraints
+???‚îú‚îÄ‚îÄ bonds/                 ???Emotional memory (relationship, rapport)
+???  ‚îú‚îÄ‚îÄ profile.md         ???User personality & working style
+???  ‚îú‚îÄ‚îÄ story.md           ???Shared history, milestones
+???  ‚îî‚îÄ‚îÄ vibe.md            ???Rapport, signals, unwritten rules
+???‚îú‚îÄ‚îÄ preferences/           ???User preferences
+???  ‚îî‚îÄ‚îÄ user.md
+???‚îî‚îÄ‚îÄ daily/                 ???Raw daily logs
     ‚îî‚îÄ‚îÄ YYYY-MM-DD.md
 ```
 
@@ -49,18 +49,18 @@ Place a `MEMORY.md` file at your agent's workspace root with a navigation sectio
 
 ```
 ## Memory Navigation
-- Lessons learned ‚Ü?memory/claude-like/recent.md (auto-load)
-- Domain knowledge ‚Ü?memory/knowledge/ (trigger-based lookup)
-- Pending tasks ‚Ü?memory/context/pending.md
-- Known limits ‚Ü?memory/context/limitations.md
+- Lessons learned ???memory/claude-like/recent.md (auto-load)
+- Domain knowledge ???memory/knowledge/ (trigger-based lookup)
+- Pending tasks ???memory/context/pending.md
+- Known limits ???memory/context/limitations.md
 ```
 
 ### Auto-learning workflow
 
-1. **Agent is corrected** ‚Ü?immediately appends to `claude-like/recent.md`
-2. **Agent starts a session** ‚Ü?reads `recent.md` first (capped at 200 lines)
-3. **Over 200 lines** ‚Ü?oldest entries are distilled into `knowledge/` and removed
-4. **Keyword triggers** ‚Ü?when conversation mentions "git", agent auto-reads `knowledge/git.md`
+1. **Agent is corrected** ???immediately appends to `claude-like/recent.md`
+2. **Agent starts a session** ???reads `recent.md` first (capped at 200 lines)
+3. **Over 200 lines** ???oldest entries are distilled into `knowledge/` and removed
+4. **Keyword triggers** ???when conversation mentions "git", agent auto-reads `knowledge/git.md`
 
 ### Inspired by
 
@@ -68,7 +68,7 @@ Place a `MEMORY.md` file at your agent's workspace root with a navigation sectio
 |--------|-----------------|
 | [memU](https://github.com/NevaMind-AI/memU) | Memory as hierarchical file system (categories/facts like folders/files) |
 | [Claude Code Memory](https://code.claude.com/docs/zh-CN/memory) | Auto-learning cache, bounded context (200 lines), separate knowledge vs memory |
-| [Claude Code Best Practices](https://code.claude.com/docs/zh-CN/best-practices) | Trigger-based retrieval, "correct ‚Ü?log ‚Ü?apply" loop |
+| [Claude Code Best Practices](https://code.claude.com/docs/zh-CN/best-practices) | Trigger-based retrieval, "correct ???log ???apply" loop |
 
 ## Applicability
 
@@ -78,12 +78,12 @@ This template works with any AI agent that reads files and writes to a workspace
 
 | Agent | How to use |
 |-------|-----------|
-| **OpenClaw** | Set `agents.defaults.workspace` in openclaw.json to point at the parent of `memory/`. Place `MEMORY.md` at workspace root ‚Ä?it auto-loads on each session. Convert `knowledge/` files into Skill format (`skills/*/SKILL.md`) for auto-triggered retrieval. |
+| **OpenClaw** | Set `agents.defaults.workspace` in openclaw.json to point at the parent of `memory/`. Place `MEMORY.md` at workspace root ???it auto-loads on each session. Convert `knowledge/` files into Skill format (`skills/*/SKILL.md`) for auto-triggered retrieval. |
 | **Claude Code** | Place `CLAUDE.md` at project root with `@MEMORY.md` import. Or symlink: `ln -s memory/../MEMORY.md ./CLAUDE.md`. Auto-memory (`claude-like/recent.md`) directly mirrors Claude's built-in learning cache. |
 | **Cline** | Set `memory/` path in Cline's custom instructions. Reference file paths in your rules. |
 | **Cursor / Windsurf** | Add key knowledge points from `knowledge/` to `.cursorrules` or project rules. Reference the full files in `.cursor/rules/`. |
 | **Codex CLI** | Include `MEMORY.md` content in your task prompt at session start. Reference `knowledge/` files when relevant. |
-| **Any CLI agent** | Pipe the template structure into the initial prompt: `cat MEMORY.md knowledge/git.md | agent --task "‚Ä?`. |
+| **Any CLI agent** | Pipe the template structure into the initial prompt: `cat MEMORY.md knowledge/git.md | agent --task "???`. |
 
 ### By Operating System
 
@@ -96,22 +96,22 @@ This template works with any AI agent that reads files and writes to a workspace
 
 ## How it compares to existing solutions
 
-| Feature | This template | Awareness-Local (217‚≠? | cortex (239‚≠? | clawbrain (25‚≠? |
+| Feature | This template | Awareness-Local (217??? | cortex (239??? | clawbrain (25??? |
 |---------|:---:|:---:|:---:|:---:|
-| Zero dependencies (copy & use) | ‚ú?| ‚ù?needs MCP server | ‚ù?needs Python service | ‚ù?needs plugin |
-| Multi-agent support (OpenClaw/Claude/Cline/Codex) | ‚ú?table for 8 agents | ‚ù?MCP only | ‚ù?framework-specific | ‚ù?OpenClaw only |
-| Reasoning memory (alternatives + constraints) | ‚ú?decisions/ format | ‚ù?| ‚ù?| ‚ù?|
-| Emotional memory (profile/story/vibe) | ‚ú?bonds/ | ‚ù?| ‚ù?| ‚ú?Soul + Bonding |
-| Memory decay (status markers) | ‚ú?‚è?over time | ‚ù?| ‚ù?| ‚ù?|
-| Auto-learning (rolling 200-line cache) | ‚ú?claude-like/recent.md | ‚ö†Ô∏è via MCP | ‚ù?| ‚ù?|
-| Trigger-based retrieval | ‚ú?triggers.md | ‚ö†Ô∏è semantic search | ‚ú?| ‚ù?|
-| Sleep-time compute (log after respond) | ‚ú?structured rule | ‚ù?| ‚ù?| ‚ù?|
-| Structured summary format | ‚ú?type/root cause/solution/status | ‚ù?| ‚ù?| ‚ù?|
-| Local-first, no cloud | ‚ú?| ‚ú?| ‚ö†Ô∏è optional | ‚ú?|
+| Zero dependencies (copy & use) | ???| ???needs MCP server | ???needs Python service | ???needs plugin |
+| Multi-agent support (OpenClaw/Claude/Cline/Codex) | ???table for 8 agents | ???MCP only | ???framework-specific | ???OpenClaw only |
+| Reasoning memory (alternatives + constraints) | ???decisions/ format | ???| ???| ???|
+| Emotional memory (profile/story/vibe) | ???bonds/ | ???| ???| ???Soul + Bonding |
+| Memory decay (status markers) | ??????over time | ???| ???| ???|
+| Auto-learning (rolling 200-line cache) | ???claude-like/recent.md | ‚ö†Ô∏è via MCP | ???| ???|
+| Trigger-based retrieval | ???triggers.md | ‚ö†Ô∏è semantic search | ???| ???|
+| Sleep-time compute (log after respond) | ???structured rule | ???| ???| ???|
+| Structured summary format | ???type/root cause/solution/status | ???| ???| ???|
+| Local-first, no cloud | ???| ???| ‚ö†Ô∏è optional | ???|
 
 **Why build on templates instead of services?**
 
-- **No lock-in.** Your memory is markdown files ‚Ä?portable, diffable, git-trackable. Move agents without migrating databases.
+- **No lock-in.** Your memory is markdown files ???portable, diffable, git-trackable. Move agents without migrating databases.
 - **No runtime.** No server to deploy, no API to maintain, no credentials to rotate.
 - **Transparent.** Every memory entry is a file you can open and edit with any text editor.
 - **Versionable.** Check `memory/decisions/` into git. Your agent's reasoning becomes team knowledge.
@@ -122,7 +122,7 @@ This template works with any AI agent that reads files and writes to a workspace
 
 - **Minimal setup**: Just use `claude-like/recent.md` + one `knowledge/` file for your most common topic. No other directories needed.
 - **Team setup**: Share `knowledge/` and `decisions/` via git. Keep `bonds/` and `preferences/` local (add to `.gitignore`).
-- **Swarm setup** (ClawTeam, agent teams): The leader agent uses `MEMORY.md`. Workers are stateless ‚Ä?they get task-specific knowledge via spawn prompt, not persistent memory.
+- **Swarm setup** (ClawTeam, agent teams): The leader agent uses `MEMORY.md`. Workers are stateless ???they get task-specific knowledge via spawn prompt, not persistent memory.
 
 > See [ROADMAP.md](ROADMAP.md) for known limitations and planned improvements.
 
@@ -136,10 +136,10 @@ Every session starts blank. Previously solved problems are re-solved from scratc
 
 | Task | Attempts | Outcome |
 |------|----------|---------|
-| `git clone` behind SOCKS5 proxy | 5 | ‚ù?TLS handshake ‚Ü?tried SSH ‚Ü?searched docs ‚Ü?15 min |
-| `wsl bash -c` with sudo | 2 | ‚ù?stuck on password prompt ‚Ü?opened new terminal ‚Ü?3 min |
-| `gh CLI` usage | 3 | ‚ù?`command not found` ‚Ü?searched PATH ‚Ü?5 min |
-| `pip install` in Ubuntu 26.04 | 2 | ‚ù?`externally-managed` ‚Ü?searched ‚Ü?5 min |
+| `git clone` behind SOCKS5 proxy | 5 | ???TLS handshake ???tried SSH ???searched docs ???15 min |
+| `wsl bash -c` with sudo | 2 | ???stuck on password prompt ???opened new terminal ???3 min |
+| `gh CLI` usage | 3 | ???`command not found` ???searched PATH ???5 min |
+| `pip install` in Ubuntu 26.04 | 2 | ???`externally-managed` ???searched ???5 min |
 
 ### After: with memory system
 
@@ -147,10 +147,10 @@ Each solution is recorded once in `knowledge/`. The agent reads it before attemp
 
 | Task | Attempts | Outcome |
 |------|----------|---------|
-| `git clone` behind SOCKS5 proxy | **1** | ‚ú?`GIT_SSL_BACKEND=openssl` from `knowledge/git.md` ‚Ä?5 sec |
-| `wsl bash -c` with sudo | **1** | ‚ú?`echo "password" | sudo -S` from `knowledge/wsl.md` ‚Ä?2 sec |
-| `gh CLI` usage | **1** | ‚ú?full path from `knowledge/github.md` ‚Ä?3 sec |
-| `pip install` in Ubuntu 26.04 | **1** | ‚ú?venv setup from `knowledge/wsl.md` ‚Ä?10 sec |
+| `git clone` behind SOCKS5 proxy | **1** | ???`GIT_SSL_BACKEND=openssl` from `knowledge/git.md` ???5 sec |
+| `wsl bash -c` with sudo | **1** | ???`echo "password" | sudo -S` from `knowledge/wsl.md` ???2 sec |
+| `gh CLI` usage | **1** | ???full path from `knowledge/github.md` ???3 sec |
+| `pip install` in Ubuntu 26.04 | **1** | ???venv setup from `knowledge/wsl.md` ???10 sec |
 
 **Time saved per task: 3-15 minutes.** The ~3k token cost of loading `recent.md` at session start is recovered by avoiding a single mistake.
 
@@ -164,21 +164,21 @@ Each solution is recorded once in `knowledge/`. The agent reads it before attemp
 
 | Scenario | Template (this repo) | Memory service (cortex, Awareness-Local) |
 |---------|:---:|:---:|
-| Single user, personal agent | **‚ú?Best fit** | Overkill |
-| Team of 10+ users sharing memory | ‚ù?Not designed for this | **‚ú?Best fit** |
-| < 500 memory entries | **‚ú?Lightweight** | Fine but extra ops |
-| 5000+ entries with semantic search | ‚ù?No vector search | **‚ú?Purpose-built** |
-| Zero ops, no deploy | **‚ú?Copy & go** | Needs server/database |
-| Need to git-track memory changes | **‚ú?Built on files** | ‚ù?Binary or DB |
-| Want AI to auto-extract memories | ‚ù?Manual logging | **‚ú?Automatic** |
-| Need cross-reference reasoning | ‚ù?File-by-file only | **‚ú?Graph queries** |
-| Building a demo / prototype | **‚ú?Fast setup** | Too heavy |
-| Building for production scale | ‚ù?Single-agent limit | **‚ú?Multi-tenant** |
+| Single user, personal agent | **???Best fit** | Overkill |
+| Team of 10+ users sharing memory | ???Not designed for this | **???Best fit** |
+| < 500 memory entries | **???Lightweight** | Fine but extra ops |
+| 5000+ entries with semantic search | ???No vector search | **???Purpose-built** |
+| Zero ops, no deploy | **???Copy & go** | Needs server/database |
+| Need to git-track memory changes | **???Built on files** | ???Binary or DB |
+| Want AI to auto-extract memories | ???Manual logging | **???Automatic** |
+| Need cross-reference reasoning | ???File-by-file only | **???Graph queries** |
+| Building a demo / prototype | **???Fast setup** | Too heavy |
+| Building for production scale | ???Single-agent limit | **???Multi-tenant** |
 
 **Key insight:** Your choice should depend on scale.
-- **Personal use, < 500 entries, single agent ‚Ü?template.** The overhead of a memory service isn't worth it.
-- **Team, thousands of entries, need auto-discovery ‚Ü?service.** The template's manual approach won't scale.
-- **Want to start simple and upgrade later?** Start here. All memory is markdown files ‚Ä?portable to any system when you outgrow this approach.
+- **Personal use, < 500 entries, single agent ???template.** The overhead of a memory service isn't worth it.
+- **Team, thousands of entries, need auto-discovery ???service.** The template's manual approach won't scale.
+- **Want to start simple and upgrade later?** Start here. All memory is markdown files ???portable to any system when you outgrow this approach.
 
 ## Version History
 
@@ -193,5 +193,5 @@ Each solution is recorded once in `knowledge/`. The agent reads it before attemp
 ## License
 
 MIT
-
-
+
+
