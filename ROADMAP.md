@@ -48,6 +48,8 @@ The memory system is designed for one persistent agent. Temporary swarm workers 
 
 | Version | Date | Notes |
 |---------|------|-------|
-| v1.2 | 2026-05-10 | Added applicability guide, per-agent/OS support |
-| v1.1 | 2026-05-10 | Added version history |
+| v1.4 | 2026-05-10 | README: add ROADMAP reference |
+| v1.3 | 2026-05-10 | Add ROADMAP.md |
+| v1.2 | 2026-05-10 | Add applicability guide: per-agent/OS support |
+| v1.1 | 2026-05-10 | Add version history table |
 | v1.0 | 2026-05-10 | Initial release |

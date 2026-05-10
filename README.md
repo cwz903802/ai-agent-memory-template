@@ -111,8 +111,11 @@ This template works with any AI agent that reads files and writes to a workspace
 
 | Version | Date | Notes |
 |---------|------|-------|
-| v1.1 | 2026-05-10 | Added applicability guide, version history |
-| v1.0 | 2026-05-10 | Initial release: complete memory structure, README, MEMORY template |
+| v1.4 | 2026-05-10 | README: add ROADMAP reference |
+| v1.3 | 2026-05-10 | Add ROADMAP.md: limitations, future directions |
+| v1.2 | 2026-05-10 | Add applicability guide: per-agent/OS support, customization |
+| v1.1 | 2026-05-10 | Add version history table |
+| v1.0 | 2026-05-10 | Initial release: memory structure + templates |
 
 ## License
 
