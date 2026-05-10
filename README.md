@@ -75,6 +75,12 @@ Place a `MEMORY.md` file at your agent's workspace root with a navigation sectio
 | [Claude Code Memory](https://code.claude.com/docs/zh-CN/memory) | Auto-learning cache, bounded context (200 lines), separate knowledge vs memory |
 | [Claude Code Best Practices](https://code.claude.com/docs/zh-CN/best-practices) | Trigger-based retrieval, "correct → log → apply" loop |
 
+## Version History
+
+| Version | Date | Notes |
+|---------|------|-------|
+| v1.0 | 2026-05-10 | Initial release: complete memory structure, README, MEMORY template |
+
 ## License
 
 MIT
