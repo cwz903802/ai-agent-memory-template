@@ -103,6 +103,26 @@ Place a `MEMORY.md` file at your agent's workspace root with a navigation sectio
 3. **Over 200 lines** -> oldest entries are distilled into `knowledge/` and removed
 4. **Keyword triggers** -> when conversation mentions "git", agent auto-reads `knowledge/git.md`
 
+### Memory update enforcement
+
+Memory updates are **NOT optional**. Configure your agent with these hard rules:
+
+**End-of-session check (mandatory):**
+At the end of every conversation, the agent must check:
+- `claude-like/recent.md` — pitfalls, decisions, knowledge from this session
+- `knowledge/` — new tools, config changes
+- `daily/YYYY-MM-DD.md` — what happened today
+- `context/pending.md` — unfinished items
+- `triggers.md` — new trigger keywords
+
+**Start-of-session check (complementary):**
+At the start of every new session, check if the previous session left any memory updates pending. If so, fill them in immediately.
+
+**Pitfall/immediate logging:**
+When hitting a pitfall or making a decision during conversation, log it IMMEDIATELY. Do not wait for session end.
+
+> **Status after 10+ hours of practical use:** Without enforcement, the agent logged daily summaries but failed to update `knowledge/` and `claude-like/recent.md` consistently. After adding forced update rules (same priority as security redlines), all memory components were maintained reliably across sessions.
+
 ## Applicability
 
 This template works with any AI agent that reads files and writes to a workspace directory. The method of "loading" varies by platform:
@@ -183,6 +203,8 @@ This template works with any AI agent that reads files and writes to a workspace
 
 | Version | Date | Notes |
 |---------|------|-------|
+| v2.0.3 | 2026-05-12 | Fix: forced memory update rules, start-of-session check, immediate logging |
+| v2.0.3 | 2026-05-12 | Fix: forced memory update rules, start-of-session check, immediate logging |
 | v2.0.2 | 2026-05-10 | Fix: version sync + pre-push checklist in github.md |
 | v2.0.1 | 2026-05-10 | Fix: sync version history, add pre-push checklist |
 | v2.0 | 2026-05-10 | Real-world impact data, before/after metrics, privacy audit |
