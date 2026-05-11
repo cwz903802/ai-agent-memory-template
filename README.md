@@ -208,7 +208,6 @@ This template works with any AI agent that reads files and writes to a workspace
 | v2.0.1 | 2026-05-10 | Fix: sync version history, add pre-push checklist |
 | v2.0 | 2026-05-10 | Real-world impact data, before/after metrics, privacy audit |
 | v1.9 | 2026-05-10 | INDEX cross-ref, combined triggers, knowledge cross-links |
-| v1.8 | 2026-05-10 | Honest comparison: template vs memory service |
 
 ## License
 
