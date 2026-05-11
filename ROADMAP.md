@@ -12,7 +12,11 @@ Knowledge files are read on-demand the agent must remember to check them. A trig
 ### 2. Manual Learning Logging
 When the agent is corrected, it must manually append to `recent.md`. There's no automatic detection of correction patterns.
 
-**Resolved:** A structured format (`日期 | 类型 | 问题 | 根因 | 解法 | 状态`) and sleep-time compute rule (log after responding) have been adopted. The 200-line cap forces periodic distillation.
+**Resolved (v2.0.3):** Forced memory update rules are now embedded in the agent's system prompt (AGENTS.md) at the same priority level as security redlines:
+- End-of-session check: mandatory review of all memory files
+- Start-of-session check: detect and fill pending updates from previous session
+- Immediate logging: pitfalls/decisions logged during conversation, not batched
+- Template file available: `template/memory-update-rules.md`
 
 ### 3. No Cross-Session Statistics
 The system doesn't track how often corrections happen, which knowledge files are most used, or consolidation frequency.
@@ -64,11 +68,11 @@ Knowledge entries now carry status markers (`有效` / `待验证` / `已过时`
 
 | Version | Date | Notes |
 |---------|------|-------|
+| v2.0.3 | 2026-05-12 | Fix: forced memory update rules + start/end-of-session checks + immediate logging + template file |
 | v2.0.2 | 2026-05-10 | Fix: version sync + pre-push checklist |
 | v2.0.1 | 2026-05-10 | Fix: sync version history, add pre-push checklist |
 | v2.0 | 2026-05-10 | Real-world impact data, before/after metrics |
 | v1.9 | 2026-05-10 | INDEX cross-ref, combined triggers, cross-links |
-| v1.8 | 2026-05-10 | Honest comparison: template vs memory service |
 
 
 
