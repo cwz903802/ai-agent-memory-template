@@ -203,8 +203,8 @@ This template works with any AI agent that reads files and writes to a workspace
 
 | Version | Date | Notes |
 |---------|------|-------|
-| v2.0.3 | 2026-05-12 | Fix: forced memory update rules, start-of-session check, immediate logging |
-| v2.0.3 | 2026-05-12 | Fix: forced memory update rules, start-of-session check, immediate logging |
+| v2.0.3 | 2026-05-12 | Fix: forced memory update rules + start/end-of-session checks + immediate logging + template file |
+| v2.0.3 | 2026-05-12 | Fix: forced memory update rules + start/end-of-session checks + immediate logging + template file |
 | v2.0.2 | 2026-05-10 | Fix: version sync + pre-push checklist in github.md |
 | v2.0.1 | 2026-05-10 | Fix: sync version history, add pre-push checklist |
 | v2.0 | 2026-05-10 | Real-world impact data, before/after metrics, privacy audit |
